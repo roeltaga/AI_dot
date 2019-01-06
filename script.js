@@ -101,10 +101,18 @@ window.onload = function() {
             stepNr = 0;
         }
     }
-
+    let onlyDistances = [];
     function getBest() {
-        console.log("the best is:  " + Math.min)
-        document.getElementById("theBest").innerHTML = gen0[gen0.length-1].moves + " <br> " + gen0[gen0.length-1].distance + " moves left";
+        for (o=0; o<gen0.length; o++){
+            // console.log(gen0[o].distance);
+            onlyDistances.push(gen0[o].distance);
+            
+        }
+        console.log(onlyDistances);
+
+        document.getElementById("theBest").innerHTML = Math.min(...onlyDistances) + " moves left";
+        // let i = gen0.indexOf(Math.min(...gen0.distance));
+        // console.log("BESTEVER: " + i)
     }
 
 
