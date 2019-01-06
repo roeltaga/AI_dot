@@ -78,7 +78,7 @@ window.onload = function() {
 
             let xAway = parseInt(destination.style.left) - parseInt(dumb.style.left);
             let yAway = parseInt(destination.style.top) - parseInt(dumb.style.top);
-            let xyAway = Math.abs(xAway) + Math.abs(yAway); //How many moves Away from destination
+            let xyAway = Math.abs(xAway)/10 + Math.abs(yAway)/10; //How many moves Away from destination
             console.log(xyAway);
 
             let obj0 = {
@@ -90,8 +90,9 @@ window.onload = function() {
             console.log("added to gen0: " + obj0);
 
             // gen0[0].road = temp;
-            console.log(gen0);
+            console.log(gen0[gen0.length -1].distance);
 
+            console.log("out-: " + Math.max(gen0[gen0.length -1].distance));
 
 
 
@@ -101,6 +102,13 @@ window.onload = function() {
         }
     }
 
+    function getBest() {
+        console.log("the best is:  " + Math.min)
+        document.getElementById("theBest").innerHTML = gen0[gen0.length-1].moves + " <br> " + gen0[gen0.length-1].distance + " moves left";
+    }
+
+
+
 
     
 
@@ -109,6 +117,8 @@ window.onload = function() {
     // EVENTS *****
     
     document.getElementById("run").addEventListener("click", runSteps);
+    
+    document.getElementById("getBest").addEventListener("click", getBest);
 
 
 
@@ -146,3 +156,15 @@ window.onload = function() {
 
 
 }
+
+
+
+
+
+
+// Extra Comments and Ideas
+
+
+// If (number of moves done by dumb = distance before - distance after * 10) {
+//     keep this dump alive...
+// }
