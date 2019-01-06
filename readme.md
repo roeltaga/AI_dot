@@ -23,3 +23,7 @@ Tracking time I've spent on this project
 6/1 9:00 - Starded the project after waking up with this crazy idea.
     -1h rest
     -45m
+    -1h
+    -1h
+    -30m
+    
