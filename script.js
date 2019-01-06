@@ -25,6 +25,8 @@ window.onload = function() {
 
     // All functions() here...
 
+    let temp = "";
+
     function move(direction) {
         if (direction == "w") {
             newPos = parseInt(dumb.style.top) - 10;
@@ -42,10 +44,15 @@ window.onload = function() {
             newPos = parseInt(dumb.style.left) - 10;
             dumb.style.left = newPos;
         }
+
+        
+        temp = temp + direction;
+        console.log(temp);
     }
 
 
 
+    
     function randomMove() {
         var direction = moves[Math.floor(Math.random() * 4)]; // chose w/d/s/a randmoly
         move(direction);
@@ -69,6 +76,13 @@ window.onload = function() {
             setTimeout( runSteps, 70 );
         }
         else {
+            
+            console.log(gen1);
+            console.log("added to gen1: " + temp);
+            gen1.push(temp);
+            console.log(gen1);
+            temp = "";
+
             stepNr = 0;
         }
     }

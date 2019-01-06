@@ -25,5 +25,5 @@ Tracking time I've spent on this project
     -45m
     -1h
     -1h
-    -30m
+    -1h
     
