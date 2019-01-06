@@ -3,14 +3,21 @@ window.onload = function() {
 
     //Declare a billion variables here LOL
 
-    let dumb = document.getElementById("dumb");
+    // INPUT variables
 
-    let destination = document.getElementById("destination");
+    const dumb = document.getElementById("dumb");
 
-    let moves = ["w","d","s","a"];
+    const destination = document.getElementById("destination");
+
+    const moves = ["w","d","s","a"];
 
 
 
+
+    // OUTPUT variables
+
+    let gen1 = []; //store moves of 
+    //gen1.push("$movesOf1stDot");
 
 
 
@@ -59,7 +66,7 @@ window.onload = function() {
         randomMove();
         stepNr++;
         if( stepNr < howManyTimes ){
-            setTimeout( runSteps, 80 );
+            setTimeout( runSteps, 70 );
         }
         else {
             stepNr = 0;
