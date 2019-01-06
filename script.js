@@ -76,13 +76,28 @@ window.onload = function() {
             setTimeout( runSteps, 70 );
         }
         else {
-            
             console.log(gen1);
             console.log("added to gen1: " + temp);
-            gen1.push(temp);
+            gen1.push(56.245);
+            gen1[0].road = temp;
             console.log(gen1);
-            temp = "";
 
+
+            let xAway = parseInt(destination.style.left) - parseInt(dumb.style.left);
+            let yAway = parseInt(destination.style.top) - parseInt(dumb.style.top);
+            let xyAway = Math.abs(xAway) + Math.abs(yAway);
+            // let yAway = destination
+            console.log(xyAway);
+            // let obj1 = {
+            //     moves: temp,
+            //     distance: ,
+            // }
+
+
+
+
+
+            temp = "";
             stepNr = 0;
         }
     }
