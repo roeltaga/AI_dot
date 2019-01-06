@@ -16,8 +16,8 @@ window.onload = function() {
 
     // OUTPUT variables
 
-    let gen1 = []; //store moves of 
-    //gen1.push("$movesOf1stDot");
+    let gen0 = []; //store moves of 
+    //gen0.push("$movesOf1stDot");
 
 
 
@@ -45,8 +45,7 @@ window.onload = function() {
             dumb.style.left = newPos;
         }
 
-        
-        temp = temp + direction;
+        temp += direction;
         console.log(temp);
     }
 
@@ -76,22 +75,22 @@ window.onload = function() {
             setTimeout( runSteps, 70 );
         }
         else {
-            console.log(gen1);
-            console.log("added to gen1: " + temp);
-            gen1.push(56.245);
-            gen1[0].road = temp;
-            console.log(gen1);
-
 
             let xAway = parseInt(destination.style.left) - parseInt(dumb.style.left);
             let yAway = parseInt(destination.style.top) - parseInt(dumb.style.top);
-            let xyAway = Math.abs(xAway) + Math.abs(yAway);
-            // let yAway = destination
+            let xyAway = Math.abs(xAway) + Math.abs(yAway); //How many moves Away from destination
             console.log(xyAway);
-            // let obj1 = {
-            //     moves: temp,
-            //     distance: ,
-            // }
+
+            let obj0 = {
+                 moves: temp,
+                 distance: xyAway,
+            }
+
+            gen0.push(obj0);
+            console.log("added to gen0: " + obj0);
+
+            // gen0[0].road = temp;
+            console.log(gen0);
 
 
 
