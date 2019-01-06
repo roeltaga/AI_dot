@@ -14,10 +14,12 @@ window.onload = function() {
 
 
 
+
     // OUTPUT variables
 
     let gen0 = []; //store moves of 
-    //gen0.push("$movesOf1stDot");
+    
+    let latestPosition = [270, 20];
 
 
 
@@ -72,7 +74,7 @@ window.onload = function() {
         randomMove();
         stepNr++;
         if( stepNr < howManyTimes ){
-            setTimeout( runSteps, 70 );
+            setTimeout( runSteps, 60 );
         }
         else {
 
@@ -87,20 +89,17 @@ window.onload = function() {
             }
 
             gen0.push(obj0);
-            console.log("added to gen0: " + obj0);
-
-            // gen0[0].road = temp;
-            console.log(gen0[gen0.length -1].distance);
-
-            console.log("out-: " + Math.max(gen0[gen0.length -1].distance));
+            console.log("added to gen0: " + obj0.moves + " at " + obj0.distance);
 
 
 
-
+            dumb.style.top = latestPosition[0];
+            dumb.style.left = latestPosition[1];
             temp = "";
             stepNr = 0;
         }
     }
+
     let onlyDistances = [];
     function getBest() {
         for (o=0; o<gen0.length; o++){
@@ -110,7 +109,13 @@ window.onload = function() {
         }
         console.log(onlyDistances);
 
-        document.getElementById("theBest").innerHTML = Math.min(...onlyDistances) + " moves left";
+        let closest = Math.min(...onlyDistances);
+        let bestObj = gen0[onlyDistances.indexOf(closest)];
+
+        console.log(bestObj);
+
+
+        document.getElementById("theBest").innerHTML = bestObj.moves + "<br> moves left: " + bestObj.distance;
         // let i = gen0.indexOf(Math.min(...gen0.distance));
         // console.log("BESTEVER: " + i)
     }
