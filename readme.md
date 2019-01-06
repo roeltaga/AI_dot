@@ -1,9 +1,9 @@
-#AI_dot featuring Dumb
+# AI_dot featuring Dumb
 
 This is my first time trying to build an AI bot. 
 I have no idea if this is really called AI but I'll do it and later ask someone to tell me...
 
-$gitHubPagesLinkHere
+https://roeltaga.github.io/AI_dot/
 
 #What is AI_dot?
 
