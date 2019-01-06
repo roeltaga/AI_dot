@@ -1,0 +1,33 @@
+
+
+
+
+#scene {
+    width: 550px;
+    height: 550px;
+    position: relative;
+    margin: auto;
+    background-color: rgb(138, 128, 128);
+}
+
+#dumb {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    /* top: 270px;
+    left: 20px;     - added in html */
+    background-color: rgb(255, 0, 0);
+    border: 1px solid blue;
+    margin: -1px;
+}
+
+#destination {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 270px;
+    left: 520px;
+    background-color: rgb(0, 255, 13);
+}
