@@ -25,4 +25,6 @@ Tracking time I've spent on this project
     22:00 end = 7h    
 
 7/1 17:10
+    -30 rest
+    3h 30m total
     

@@ -90,8 +90,6 @@ window.onload = function() {
             gen0.push(obj0);
             console.log("added to gen0: " + obj0.moves + " at " + obj0.distance);
 
-
-
             dumb.style.top = latestPosition[0];
             dumb.style.left = latestPosition[1];
             temp = "";
@@ -102,17 +100,17 @@ window.onload = function() {
 
 
     // RUN GENERATION
-    let howMany = 0;
     let genPop = 0;  //generation population
     function runGen() {
         let howManyTimes = document.getElementById("population").value;
         runSteps();
-        howMany++;
-        if( howMany < howManyTimes ){
+        genPop++;
+        if( genPop < howManyTimes ){
             setTimeout( runGen, 0 );
         }
         else {
-            howMany = 0;
+            getBest();
+            genPop = 0;
         }
     }
 
@@ -120,23 +118,65 @@ window.onload = function() {
 
     // GET BEST
     let onlyDistances = [];
+    let bestObj = {};
     function getBest() {
         for (o=0; o<gen0.length; o++){
-            // console.log(gen0[o].distance);
             onlyDistances.push(gen0[o].distance);
-            
         }
-        console.log(onlyDistances);
 
         let closest = Math.min(...onlyDistances);
-        let bestObj = gen0[onlyDistances.indexOf(closest)];
+        bestObj = gen0[onlyDistances.indexOf(closest)];
 
         console.log(bestObj);
-
-
         document.getElementById("theBest").innerHTML = bestObj.moves + "<br> moves left: " + bestObj.distance;
-        // let i = gen0.indexOf(Math.min(...gen0.distance));
-        // console.log("BESTEVER: " + i)
+    }
+
+    
+
+    // REPEAT BEST MOVES
+    let step = 0;
+    function repeatBest(moves){
+        // for(i=0; i<moves.length; i++){
+
+        //     // setTimeout( function(){move(moves.charAt(i));}, 1000 );
+
+        //     move(moves.charAt(i));
+        //     console.log("Best movies replied - " + moves);
+        // }
+        
+        // dumb.style.top = latestPosition[0];     // Ressest position
+        // dumb.style.left = latestPosition[1];
+
+        // move(moves.charAt(i));
+
+        // move(moves[step]);
+        // setTimeout( function(){move(moves[step]);}, 1000 );
+
+        // setTimeout(function() {
+        //     console.log("asdasd " + step);
+        // }, 1000);
+
+        // step++;
+
+        // if (step < moves.length) {
+        //     repeatBest(moves);
+        // }
+        // else {
+
+        // }
+
+
+
+        let howManyTimes = bestObj.moves.lenth;
+        move(bestObj.moves[step]);
+        step++;
+        
+        if( step < howManyTimes ){
+            setTimeout( repeatBest(bestObj.moves), 100 );
+        }
+
+
+
     }
 
 
@@ -153,6 +193,8 @@ window.onload = function() {
     document.getElementById("getBest").addEventListener("click", getBest);
     
     document.getElementById("runGen").addEventListener("click", runGen);
+    
+    document.getElementById("repeatBest").addEventListener("click", function(){ repeatBest(bestObj.moves)});
 
 
 
