@@ -21,10 +21,8 @@ ________________________________________
 Tracking time I've spent on this project
 
 6/1 9:00 - Starded the project after waking up with this crazy idea.
-    -1h rest
-    -45m
-    -1h
-    -1h
-    -1h
-    -10m
+    -5h rest
+    22:00 end = 7h    
+
+7/1 17:10
     

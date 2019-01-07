@@ -1,6 +1,7 @@
 window.onload = function() {
 
 
+
     //Declare a billion variables here LOL
 
     // INPUT variables
@@ -13,8 +14,6 @@ window.onload = function() {
 
 
 
-
-
     // OUTPUT variables
 
     let gen0 = []; //store moves of 
@@ -23,12 +22,11 @@ window.onload = function() {
 
 
 
-
-
     // All functions() here...
 
     let temp = "";
 
+    // MOVE
     function move(direction) {
         if (direction == "w") {
             newPos = parseInt(dumb.style.top) - 10;
@@ -48,12 +46,12 @@ window.onload = function() {
         }
 
         temp += direction;
-        console.log(temp);
+        // console.log(temp);
     }
 
 
 
-    
+    // RANDOM MOVE
     function randomMove() {
         var direction = moves[Math.floor(Math.random() * 4)]; // chose w/d/s/a randmoly
         move(direction);
@@ -68,13 +66,14 @@ window.onload = function() {
     //     }
     // }
 
-    let stepNr = 0;  
+    // RUN STEPS
+    let stepNr = 0;
     function runSteps() {       //delayed moves
         let howManyTimes = document.getElementById("timesToRun").value;
         randomMove();
         stepNr++;
         if( stepNr < howManyTimes ){
-            setTimeout( runSteps, 60 );
+            setTimeout( runSteps, 0 );
         }
         else {
 
@@ -100,6 +99,26 @@ window.onload = function() {
         }
     }
 
+
+
+    // RUN GENERATION
+    let howMany = 0;
+    let genPop = 0;  //generation population
+    function runGen() {
+        let howManyTimes = document.getElementById("population").value;
+        runSteps();
+        howMany++;
+        if( howMany < howManyTimes ){
+            setTimeout( runGen, 0 );
+        }
+        else {
+            howMany = 0;
+        }
+    }
+
+
+
+    // GET BEST
     let onlyDistances = [];
     function getBest() {
         for (o=0; o<gen0.length; o++){
@@ -132,6 +151,8 @@ window.onload = function() {
     document.getElementById("run").addEventListener("click", runSteps);
     
     document.getElementById("getBest").addEventListener("click", getBest);
+    
+    document.getElementById("runGen").addEventListener("click", runGen);
 
 
 
