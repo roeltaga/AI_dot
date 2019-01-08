@@ -28,7 +28,6 @@ Tracking time I've spent on this project
     -30 rest
     3h 30m total
 
-8/1 14:00 - 40m
-    17:00
-    -50 m rest
+8/1 14:00
+    2h 30m total
     
