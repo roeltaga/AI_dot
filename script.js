@@ -92,6 +92,7 @@ window.onload = function() {
 
             dumb.style.top = latestPosition[0];
             dumb.style.left = latestPosition[1];
+            
             temp = "";
             stepNr = 0;
         }
@@ -119,6 +120,7 @@ window.onload = function() {
     // GET BEST
     let onlyDistances = [];
     let bestObj = {};
+    let eachGenBest = [];
     function getBest() {
         for (o=0; o<gen0.length; o++){
             onlyDistances.push(gen0[o].distance);
@@ -129,6 +131,20 @@ window.onload = function() {
 
         console.log(bestObj);
         document.getElementById("theBest").innerHTML = bestObj.moves + "<br> moves left: " + bestObj.distance;
+
+        eachGenBest.push(bestObj.moves);
+        console.log(eachGenBest);
+
+
+
+        // console.log("4 " + onlyDistances);
+        // console.log("4 " + gen0[0].moves);
+        // console.log("4 " + eachGenBest);
+
+
+
+        onlyDistances = []; 
+        gen0 = []; //reset
     }
 
     
@@ -140,6 +156,8 @@ window.onload = function() {
         let howManyTimes = bestObj.moves.length;
         move(bestObj.moves[step]);
         step++;
+
+        console.log("4 " + bestObj.moves);
         
         if( step < howManyTimes ){
             setTimeout( repeatBest, 300 );
@@ -150,9 +168,26 @@ window.onload = function() {
             checkpoint0.setAttribute("class", "checkpoint");
             checkpoint0.setAttribute("style", dumb.style.cssText);
             document.getElementById("scene").appendChild(checkpoint0);
-            dumb.style.top = latestPosition[0];
-            dumb.style.left = latestPosition[1];
+            latestPosition[0] = dumb.style.top;
+            latestPosition[1] = dumb.style.left;
         }
+
+    }
+
+
+
+    // RUN NEXT GEN
+
+    function runNextGen() {
+        let delay = bestObj.moves.length * 300;
+
+        repeatBest();
+
+        setTimeout( function() {
+            console.log("HELP ME")
+        }, delay);
+
+        setTimeout( runGen, delay);
 
     }
 
@@ -170,6 +205,8 @@ window.onload = function() {
     document.getElementById("getBest").addEventListener("click", getBest);
     
     document.getElementById("runGen").addEventListener("click", runGen);
+    
+    document.getElementById("runNextGen").addEventListener("click", runNextGen);
     
     document.getElementById("repeatBest").addEventListener("click", repeatBest);
 

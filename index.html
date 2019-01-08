@@ -6,6 +6,26 @@
     <title>AI_dot</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <!--[if IE]>
+        <style>
+            #ie {
+                display: absolute !important;
+                background-color: brown;
+                text-align: center;
+                width: 100%;
+                height: 100%;
+                color: antiquewhite;
+                font-size: 28px;
+                line-height: 2;
+                font-family: monospace;
+                position: fixed;
+                padding-top: 10%;
+                top: 0;
+                left: 0;
+                z-index: 99999;
+            }
+        </style>
+    <![endif]-->
 </head>
 <body>
     <div id="scene">
@@ -14,17 +34,30 @@
     </div>
     <div id="options">
         <h4 style="margin-top: 0;">Admin Panel</h4>
-        <input id="timesToRun" type="number" value="3" style="width:70px; font-size:16px;">
+        <input id="timesToRun" type="number" value="5" style="width:70px; font-size:16px;">
         <button id="run" style="font-size:16px;">Run moves</button>
         <br> <br>
-        <input id="population" type="number" value="10" style="width:80px; font-size:16px;">
+        <input id="population" type="number" value="100" style="width:80px; font-size:16px;">
         <button id="runGen" style="font-size:16px;">Run Generation</button> 
+        <br> <br>
+        <button id="runNextGen" style="font-size:16px; background-color: rgb(148, 218, 121)">Run Next Gen</button> 
         <br> <br>
         <button id="getBest" style="font-size:16px;">Get Best of Gen</button>
         <br>
         <span id="theBest">- - -</span>
         <br> <br>
         <button id="repeatBest" style="font-size:16px;">Repeat best</button>
+    </div>
+
+
+
+
+
+
+    <div id="ie">
+        Your browser is not supported
+        <br>
+        Please use an up-to-date browser like Firefox
     </div>
 </body>
 </html>
