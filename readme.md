@@ -27,4 +27,7 @@ Tracking time I've spent on this project
 7/1 17:10
     -30 rest
     3h 30m total
+
+8/1 14:03
+
     

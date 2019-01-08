@@ -135,47 +135,24 @@ window.onload = function() {
 
     // REPEAT BEST MOVES
     let step = 0;
-    function repeatBest(moves){
-        // for(i=0; i<moves.length; i++){
+    function repeatBest() {
 
-        //     // setTimeout( function(){move(moves.charAt(i));}, 1000 );
-
-        //     move(moves.charAt(i));
-        //     console.log("Best movies replied - " + moves);
-        // }
-        
-        // dumb.style.top = latestPosition[0];     // Ressest position
-        // dumb.style.left = latestPosition[1];
-
-        // move(moves.charAt(i));
-
-        // move(moves[step]);
-        // setTimeout( function(){move(moves[step]);}, 1000 );
-
-        // setTimeout(function() {
-        //     console.log("asdasd " + step);
-        // }, 1000);
-
-        // step++;
-
-        // if (step < moves.length) {
-        //     repeatBest(moves);
-        // }
-        // else {
-
-        // }
-
-
-
-        let howManyTimes = bestObj.moves.lenth;
+        let howManyTimes = bestObj.moves.length;
         move(bestObj.moves[step]);
         step++;
         
         if( step < howManyTimes ){
-            setTimeout( repeatBest(bestObj.moves), 100 );
+            setTimeout( repeatBest, 300 );
         }
-
-
+        else {
+            let checkpoint0 = document.createElement("div");
+            checkpoint0.setAttribute("id", "checkpoint0");
+            checkpoint0.setAttribute("class", "checkpoint");
+            checkpoint0.setAttribute("style", dumb.style.cssText);
+            document.getElementById("scene").appendChild(checkpoint0);
+            dumb.style.top = latestPosition[0];
+            dumb.style.left = latestPosition[1];
+        }
 
     }
 
@@ -194,7 +171,7 @@ window.onload = function() {
     
     document.getElementById("runGen").addEventListener("click", runGen);
     
-    document.getElementById("repeatBest").addEventListener("click", function(){ repeatBest(bestObj.moves)});
+    document.getElementById("repeatBest").addEventListener("click", repeatBest);
 
 
 
